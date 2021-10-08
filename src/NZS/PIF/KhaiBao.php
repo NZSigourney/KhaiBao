@@ -16,7 +16,7 @@ use pocketmine\event\Listener;
 class KhaiBao extends PluginBase implements Listener{
 
     public $kb = "§l§a<§e•§a>§c Info§bUI§a <§e•§a>";
-    public $config = [];
+    //public $config = [];
 
     public function onEnable(): void{
         //$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
@@ -24,11 +24,12 @@ class KhaiBao extends PluginBase implements Listener{
 
         $this->getServer()->getLogger()->info("§l§b Starting Khai Bao Plugin | Version BETA-1");
         @mkdir($this->getDataFolder(), 0744, true);
-        $this->inf = new Config($this->getDataFolder() . "Khaibao.yml", Config::YAML, []);
-        $this->kh = new Config($this->getServer()->getDataPath() . "Plugin_Data/Marry/marrylist.yml");
+        $this->age = new Config($this->getDataFolder() . "Age.yml", Config::YAML, []);
+        $this->marry = new Config($this->getDataFolder() . "Marry.yml", Config::YAML, []);
+        $this->kh = new Config($this->getServer()->getDataPath() . "Plugin_Data/Marry/marrylist.yml", Config::YAML);
 
-        $this->saveDefaultConfig();
-        $this->getResource("Config.yml");
+        /**$this->saveDefaultConfig();
+        $this->getResource("Config.yml");*/
 
         $this->getServer()->getLogger()->debug("Starting new YAML KhaiBao and Default Config: Config.yml");
     }
