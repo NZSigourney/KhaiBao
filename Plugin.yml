@@ -1,0 +1,15 @@
+name: KhaiBaoThongTin
+main: NZS\PIF\KhaiBao
+api:
+  - 3.2.0
+  - 3.0.0
+mcbe-protocol:
+  - 448
+  - 469
+  - 465
+version: BETA-1
+author: NZS
+website: github.com/NZSigourney/KhaiBao
+depends:
+  - FormAPI
+  - Marry
