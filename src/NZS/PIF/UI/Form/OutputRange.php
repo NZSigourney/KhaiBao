@@ -27,23 +27,20 @@ class OutputRange
     public function outputRange($player){
         $age = $this->getPlugin()->age->get(strtolower($player->getName()));
         $marry = $this->getPlugin()->marry->get($player->getName());
-
-        //$ifm = $this->getPlugin()->marry->set($marry);
-        /**switch($marry){
-            case "Yes":
-                return $marry;
-                break;
-            case "no":
-                $married = "Non-Marry";
-                break;
-        };*/
+        $kh = $this->getPlugin()->kh->get($player->getName());
+        //$married = $marry;
+        if($this->getPlugin()->marry->set($marry) == "No"){
+            $married = "Non-Marry";
+        }else{
+            $married = $kh;
+        }
         $a = Server::getInstance()->getPluginManager()->getPlugin("FormAPI");
         $f = $a->createCustomForm(Function (Player $player, $d){
         });
         $f->setTitle($this->getPlugin()->kb);
         $f->addLabel("================");
         $f->addLabel("Age: ". $age);
-        $f->addLabel("Marry: ". $marry);
+        $f->addLabel("Marry: ". $married);
         $f->sendToPlayer($player);
     }
 }

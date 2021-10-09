@@ -32,9 +32,10 @@ class InputRange
             }
             $age = $d[1];
             $marry = $d[2];
+            $married = $this->getPlugin()->kh->get($player->getName());
             switch($marry){
                 case "Yes":
-                    $this->getPlugin()->marry->set($player->getName(), ["Married" => $marry]);
+                    $this->getPlugin()->marry->set($player->getName(), ["Married" => $married]);
                     $this->getPlugin()->marry->save();
                     break;
                 case "No":
