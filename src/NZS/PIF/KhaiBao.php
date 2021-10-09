@@ -40,4 +40,47 @@ class KhaiBao extends PluginBase implements Listener{
          */
         $this->getLogger()->debug("goodLuck!");
     }
+
+    public function setAge($player, string $age){
+        $this->age->set($player, $age);
+        $this->age->save();
+    }
+
+    public function setMarried($player, $married){
+        $this->marry->set($player, $married);
+        $this->marry->save();
+    }
+
+    public function checkAge($player)
+    {
+        if($this->age->exists($player)){
+            return true;
+        }
+        return false;
+    }
+
+    public function checkMarried($player)
+    {
+        if($this->marry->exists($player)){
+            return true;
+        }
+        return false;
+    }
+
+    public function seeAge($player){
+        if($this->checkAge($player)){
+            $age = $this->age->get($player);
+            return $age;
+        }
+        return false;
+    }
+
+    public function seeMarried($player)
+    {
+        if($this->checkMarried($player)){
+            $married = $this->marry->get($player);
+            return $married;
+        }
+        return false;
+    }
 }

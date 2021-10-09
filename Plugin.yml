@@ -7,7 +7,7 @@ mcbe-protocol:
   - 448
   - 469
   - 465
-version: BETA-2
+version: 1.5
 author: NZS
 website: github.com/NZSigourney/KhaiBao
 depends:
